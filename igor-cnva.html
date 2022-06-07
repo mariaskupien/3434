@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <title>Biblioteka Miejska w Słupcy</title>
+
+    <style>
+        h1, h2 {
+            color: darkblue;
+            text-align: center;
+        }
+    </style>
+    <link href="Układ2.css" type="text/css" rel="stylesheet" />
+    
+    <style>
+        canvas{
+            background-color: white;
+            border: 1px  dashed darkmagenta ;
+        }
+    </style>
+
+    <script>
+       var context;
+       var x=100;
+       var y=200;
+       var dx=5;
+       var dy=5;
+       function init() {
+        context= plotno.getContext('2d');
+        setInterval(draw,10);
+       } 
+       function draw() {
+        context.clearRect(0,0, 500,500);
+        context.beginPath();
+        context.fillStyle="#0000ff";
+        context.arc(x,y,20,0,Math.PI*2,true);
+        context.closePath(); 
+        context.fill();
+        if( x<0 || x>500) dx=-dx; 
+        if( y<0 || y>500) dy=-dy;
+        x+=dx; y+=dy;
+       }
+       
+    </script>
+</head>
+<body onLoad="init();">
+  
+    <nav>
+        <h2 style="color:white; background-color:darkblue"> Menu </h2>
+        <ul>
+            <li><a href="index.html"> Strona główna </a> </li>
+            <li><a href="aktualnosci.html"> Aktualności </a> </li>
+            <li><a href="obibliotece.html"> O bibliotece </a> </li>
+            <li><a href="formularz.html"> Formularz </a> </li>
+            <li><a href="katalog.html"> Katalog </a> </li>
+            <li><a href="kalkulator.html"> Kalkulator </a> </li>
+            <li><a href="mapa.html"> Mapa </a> </li>
+            <li><a href="galeria.html"> Galeria </a> </li>
+            <li><a href="konto.html"> Konto czytelnika </a> </li>
+            <li><a href="kontakt.html"> Kontakt </a> </li>
+        </ul>
+
+    </nav>
+    <article>
+     
+
+        <canvas id="plotno" width="550" height="350"></canvas>
+
+    </article>
+  
+
+
+</body>
+</html>
+
